@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block top %}
+    <div class="container top-header">
+        <!-- titre -->
+        <div class="text-left logo">
+            <a href="{{path('accueil') }}"><img src="{{ app.request.getBasePath()~'/banniere.jpg' }}" alt="Image de la bannière"></a>
+        </div>
+        <div class="text-end top-title">
+            <h2>Administration</h2>
+        </div>
+        <div class="text-end top-nav" route="{{app.request.attributes.get('_route')}}">
+            <a href="{{ path('admin.formations') }}">Gestion des formations</a>
+            <a href="{{ path('admin.playlists') }}">Gestion des playlists</a>
+            <a href="{{ path('admin.category') }}">Gestion des catégories</a>
+            <a class="btn-disconnect">Se déconnecter</a>
+        </div>
+
+        <!-- menu -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
+                    </li> 
+                    <li class="nav-item">
+                    </li> 
+            </div>
+        </nav>        
+    </div>
+{% endblock %}

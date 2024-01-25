@@ -1,0 +1,21 @@
+{% extends "baseadmin.html.twig" %}
+
+{% block body %}
+    <div class="category-list">
+        {% for playlist in playlists %}
+            <div class="category">
+                <h4>
+                    {{ playlist.name }}
+                </h4>
+                <div class="text-left category-max-h">
+                    {% for formation in playlist.formations %}
+                        {{ formation.title }}<br />
+                    {% endfor %}
+                </div>
+                <div class="btn-delete">
+                    <a href="{{ path('admin.playlists.remove', {id: playlist.id}) }}" class="btn btn-danger" {% if playlist.formations|length == 0 %}onclick="return confirm('Etes-vous sûr de vouloir supprimer {{ playlist.name }} ?')"{% endif %}>Supprimer</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

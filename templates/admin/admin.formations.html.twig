@@ -1,0 +1,32 @@
+{% extends "baseadmin.html.twig" %}
+
+{% block body %}
+    <div class="data-menu">
+        <a href="{{ path('admin.formations.form') }}" class="btn">Nouvelle formation</a>
+        <div class="sort-by">
+            <a href="{{ path('admin.formations.tri', {champ: 'title', ordre: 'DESC'}) }}" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><</a>
+            <a href="{{ path('admin.formations.tri', {champ: 'title', ordre: 'ASC'}) }}" class="btn btn-info btn-sm active" role="button" aria-pressed="true">></a>
+            Trier par nom
+        </div>
+    </div>
+    <div class="category-list">
+        {% for formation in formations %}
+            <div class="category">
+                <h4>{{ formation.title }}</h4>
+                <div class="tag-list">
+                    <b>Catégories :</b>
+                    {% for category in formation.categories %}
+                        <span>{{category.name}}</span>
+                    {% endfor %}
+                </div>
+                <div class="description">
+                    <b>Description :</b><br/>
+                    {{ formation.description|replace({'\n': '<br>', '\r':'<br>'})|raw }}
+                </div>
+                <div class="menu">
+                    
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
