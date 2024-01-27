@@ -64,6 +64,8 @@ class FormationsController extends AbstractController {
             'categories' => $categories
         ]);
     }
+
+    
     
     /**
      * @Route("/formations/recherche/{champ}/{table}", name="formations.findallcontain")

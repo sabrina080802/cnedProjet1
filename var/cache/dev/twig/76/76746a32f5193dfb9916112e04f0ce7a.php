@@ -164,6 +164,6 @@ class __TwigTemplate_f2691158ad0d84c921d45bc7453bcb95 extends Template
 {% block panel %}
     {{ render(controller('web_profiler.controller.router::panelAction', { token: token })) }}
 {% endblock %}
-", "@WebProfiler/Collector/router.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/ProjetCNED1/mediatekformation/vendor/symfony/web-profiler-bundle/Resources/views/Collector/router.html.twig");
+", "@WebProfiler/Collector/router.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/CNED1/vendor/symfony/web-profiler-bundle/Resources/views/Collector/router.html.twig");
     }
 }

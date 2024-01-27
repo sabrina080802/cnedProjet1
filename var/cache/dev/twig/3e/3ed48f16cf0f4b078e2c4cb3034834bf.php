@@ -909,6 +909,6 @@ class __TwigTemplate_d481bc8e572a325a529f2d592ec391e5 extends Template
         {% endautoescape %}</script>
     </div>
 {% endmacro %}
-", "@WebProfiler/Collector/time.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/ProjetCNED1/mediatekformation/vendor/symfony/web-profiler-bundle/Resources/views/Collector/time.html.twig");
+", "@WebProfiler/Collector/time.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/CNED1/vendor/symfony/web-profiler-bundle/Resources/views/Collector/time.html.twig");
     }
 }

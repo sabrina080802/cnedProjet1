@@ -812,6 +812,6 @@ class __TwigTemplate_d306d3679452fa17233aae06a5b1e036 extends Template
         </table>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/config.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/ProjetCNED1/mediatekformation/vendor/symfony/web-profiler-bundle/Resources/views/Collector/config.html.twig");
+", "@WebProfiler/Collector/config.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/CNED1/vendor/symfony/web-profiler-bundle/Resources/views/Collector/config.html.twig");
     }
 }

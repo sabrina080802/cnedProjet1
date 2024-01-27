@@ -4,9 +4,18 @@
     <div class="data-menu">
         <a href="{{ path('admin.formations.form') }}" class="btn">Nouvelle formation</a>
         <div class="sort-by">
-            <a href="{{ path('admin.formations.tri', {champ: 'title', ordre: 'DESC'}) }}" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><</a>
-            <a href="{{ path('admin.formations.tri', {champ: 'title', ordre: 'ASC'}) }}" class="btn btn-info btn-sm active" role="button" aria-pressed="true">></a>
-            Trier par nom
+            <div class="field">
+                <form action="{{ path('admin.formations.title', {champ: 'title'}) }}">
+                    <input type="text" class="sm" name="title" value="{% if valeur|default and not table|default %}{{ valeur }}{% endif %}">
+                    <input type="hidden" name="_token" value="{{ csrf_token('filtre_title') }}">
+                    <button type="submit" class="btn btn-info">Chercher</button>
+                </form>
+            </div>
+            <div class="field">
+                <a href="{{ path('admin.formations.tri', {champ: 'title', ordre: 'DESC'}) }}" class="btn btn-info btn-sm active btn-up" role="button" aria-pressed="true"><</a>
+                <a href="{{ path('admin.formations.tri', {champ: 'title', ordre: 'ASC'}) }}" class="btn btn-info btn-sm active btn-down" role="button" aria-pressed="true">></a>
+                <div>Trier par titre</div>
+            </div>
         </div>
     </div>
     <div class="category-list">

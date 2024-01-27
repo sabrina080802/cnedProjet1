@@ -118,4 +118,20 @@ class FormationRepository extends ServiceEntityRepository
                 ->getQuery()
                 ->getResult();        
     }
+    public function findAllByTitle($title) :array{
+        return $this->createQueryBuilder('f')
+            ->where('f.title LIKE :title')
+            ->setParameter('title', '%' . $title . '%')
+            ->getQuery()
+            ->getResult();
+    }
+    public function findAllByPlaylistName($playlist) :array{
+        return $this->createQueryBuilder('f')
+            ->join('f.playlist', 'p')
+            ->where('p.name=:name')
+            ->setParameter('name', '%' . $playlist . '%')
+            ->orderBy('f.publishedAt', 'ASC')
+            ->getQuery()
+            ->getResult();   
+    }
 }

@@ -79,4 +79,20 @@ class AdminFormationsController extends AbstractController
             'formformation' => $form->createView(),
         ]);
     }
+
+    #[Route('/admin/formations/title', name:'admin.formations.title')]
+    public function searchByTitle(Request $request):Response{
+        $formations = $this->formationRepository->findAllByTitle($request->get('title'));
+        return $this->render('admin/admin.formations.html.twig', [
+            'formations' => $formations
+        ]);
+    }
+
+    #[Route('/admin/formations/playlist', name:'admin.formations.byplaylist')]
+    public function searchByPlaylist(Request $request):Response{
+        $formations = $this->formationRepository->findAllByPlaylistName($request->get('playlist'));
+        return $this->render('admin/admin.formations.html.twig', [
+            'formations' => $formations
+        ]);
+    }
 }

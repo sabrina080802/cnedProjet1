@@ -71,52 +71,72 @@ class __TwigTemplate_4e9c98cecf744bcc69d2567b411c45f3 extends Template
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations.form");
         echo "\" class=\"btn\">Nouvelle formation</a>
         <div class=\"sort-by\">
-            <a href=\"";
-        // line 7
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations.tri", ["champ" => "title", "ordre" => "DESC"]), "html", null, true);
-        echo "\" class=\"btn btn-info btn-sm active\" role=\"button\" aria-pressed=\"true\"><</a>
-            <a href=\"";
+            <div class=\"field\">
+                <form action=\"";
         // line 8
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations.title", ["champ" => "title"]);
+        echo "\">
+                    <input type=\"text\" class=\"sm\" name=\"title\" value=\"";
+        // line 9
+        if ((((array_key_exists("valeur", $context)) ? (_twig_default_filter((isset($context["valeur"]) || array_key_exists("valeur", $context) ? $context["valeur"] : (function () { throw new RuntimeError('Variable "valeur" does not exist.', 9, $this->source); })()))) : ("")) &&  !((array_key_exists("table", $context)) ? (_twig_default_filter((isset($context["table"]) || array_key_exists("table", $context) ? $context["table"] : (function () { throw new RuntimeError('Variable "table" does not exist.', 9, $this->source); })()))) : ("")))) {
+            echo twig_escape_filter($this->env, (isset($context["valeur"]) || array_key_exists("valeur", $context) ? $context["valeur"] : (function () { throw new RuntimeError('Variable "valeur" does not exist.', 9, $this->source); })()), "html", null, true);
+        }
+        echo "\">
+                    <input type=\"hidden\" name=\"_token\" value=\"";
+        // line 10
+        echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("filtre_title"), "html", null, true);
+        echo "\">
+                    <button type=\"submit\" class=\"btn btn-info\">Chercher</button>
+                </form>
+            </div>
+            <div class=\"field\">
+                <a href=\"";
+        // line 15
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations.tri", ["champ" => "title", "ordre" => "DESC"]), "html", null, true);
+        echo "\" class=\"btn btn-info btn-sm active btn-up\" role=\"button\" aria-pressed=\"true\"><</a>
+                <a href=\"";
+        // line 16
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations.tri", ["champ" => "title", "ordre" => "ASC"]), "html", null, true);
-        echo "\" class=\"btn btn-info btn-sm active\" role=\"button\" aria-pressed=\"true\">></a>
-            Trier par nom
+        echo "\" class=\"btn btn-info btn-sm active btn-down\" role=\"button\" aria-pressed=\"true\">></a>
+                <div>Trier par titre</div>
+            </div>
         </div>
     </div>
     <div class=\"category-list\">
         ";
-        // line 13
+        // line 22
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["formations"]) || array_key_exists("formations", $context) ? $context["formations"] : (function () { throw new RuntimeError('Variable "formations" does not exist.', 13, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["formations"]) || array_key_exists("formations", $context) ? $context["formations"] : (function () { throw new RuntimeError('Variable "formations" does not exist.', 22, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["formation"]) {
-            // line 14
+            // line 23
             echo "            <div class=\"category\">
                 <h4>";
-            // line 15
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "title", [], "any", false, false, false, 15), "html", null, true);
+            // line 24
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "title", [], "any", false, false, false, 24), "html", null, true);
             echo "</h4>
                 <div class=\"tag-list\">
                     <b>Catégories :</b>
                     ";
-            // line 18
+            // line 27
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["formation"], "categories", [], "any", false, false, false, 18));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["formation"], "categories", [], "any", false, false, false, 27));
             foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-                // line 19
+                // line 28
                 echo "                        <span>";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 19), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 28), "html", null, true);
                 echo "</span>
                     ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 21
+            // line 30
             echo "                </div>
                 <div class=\"description\">
                     <b>Description :</b><br/>
                     ";
-            // line 24
-            echo twig_replace_filter(twig_get_attribute($this->env, $this->source, $context["formation"], "description", [], "any", false, false, false, 24), ["
+            // line 33
+            echo twig_replace_filter(twig_get_attribute($this->env, $this->source, $context["formation"], "description", [], "any", false, false, false, 33), ["
 " => "<br>", "" => "<br>"]);
             echo "
                 </div>
@@ -129,7 +149,7 @@ class __TwigTemplate_4e9c98cecf744bcc69d2567b411c45f3 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['formation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
+        // line 40
         echo "    </div>
 ";
         
@@ -161,7 +181,7 @@ class __TwigTemplate_4e9c98cecf744bcc69d2567b411c45f3 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  133 => 31,  119 => 24,  114 => 21,  105 => 19,  101 => 18,  95 => 15,  92 => 14,  88 => 13,  80 => 8,  76 => 7,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  153 => 40,  139 => 33,  134 => 30,  125 => 28,  121 => 27,  115 => 24,  112 => 23,  108 => 22,  99 => 16,  95 => 15,  87 => 10,  81 => 9,  77 => 8,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -172,9 +192,18 @@ class __TwigTemplate_4e9c98cecf744bcc69d2567b411c45f3 extends Template
     <div class=\"data-menu\">
         <a href=\"{{ path('admin.formations.form') }}\" class=\"btn\">Nouvelle formation</a>
         <div class=\"sort-by\">
-            <a href=\"{{ path('admin.formations.tri', {champ: 'title', ordre: 'DESC'}) }}\" class=\"btn btn-info btn-sm active\" role=\"button\" aria-pressed=\"true\"><</a>
-            <a href=\"{{ path('admin.formations.tri', {champ: 'title', ordre: 'ASC'}) }}\" class=\"btn btn-info btn-sm active\" role=\"button\" aria-pressed=\"true\">></a>
-            Trier par nom
+            <div class=\"field\">
+                <form action=\"{{ path('admin.formations.title', {champ: 'title'}) }}\">
+                    <input type=\"text\" class=\"sm\" name=\"title\" value=\"{% if valeur|default and not table|default %}{{ valeur }}{% endif %}\">
+                    <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('filtre_title') }}\">
+                    <button type=\"submit\" class=\"btn btn-info\">Chercher</button>
+                </form>
+            </div>
+            <div class=\"field\">
+                <a href=\"{{ path('admin.formations.tri', {champ: 'title', ordre: 'DESC'}) }}\" class=\"btn btn-info btn-sm active btn-up\" role=\"button\" aria-pressed=\"true\"><</a>
+                <a href=\"{{ path('admin.formations.tri', {champ: 'title', ordre: 'ASC'}) }}\" class=\"btn btn-info btn-sm active btn-down\" role=\"button\" aria-pressed=\"true\">></a>
+                <div>Trier par titre</div>
+            </div>
         </div>
     </div>
     <div class=\"category-list\">
@@ -197,6 +226,6 @@ class __TwigTemplate_4e9c98cecf744bcc69d2567b411c45f3 extends Template
             </div>
         {% endfor %}
     </div>
-{% endblock %}", "admin/admin.formations.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/ProjetCNED1/mediatekformation/templates/admin/admin.formations.html.twig");
+{% endblock %}", "admin/admin.formations.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/CNED1/templates/admin/admin.formations.html.twig");
     }
 }

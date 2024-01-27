@@ -1,6 +1,22 @@
 {% extends "baseadmin.html.twig" %}
-
 {% block body %}
+     <div class="data-menu">
+        <a href="{{ path('admin.playlists.form') }}" class="btn"> Nouvelle playlist </a>
+        <div class="sort-by">
+        <div class="field">
+                <form action="{{ path('admin.playlists.search', {champ: 'name'}) }}">
+                    <input type="text" class="sm" name="name" value="{% if valeur|default and not table|default %}{{ valeur }}{% endif %}">
+                    <input type="hidden" name="_token" value="{{ csrf_token('filtre_name') }}">
+                    <button type="submit" class="btn btn-info btn-sm">Chercher</button>
+                </form>
+            </div>
+            <div class="field">
+                <a href="{{ path('admin.playlists.tri', {champ: 'name', ordre: 'DESC'}) }}" class="btn btn-info btn-sm active  btn-up" role="button" aria-pressed="true"><</a>
+                <a href="{{ path('admin.playlists.tri', {champ: 'name', ordre: 'ASC'}) }}" class="btn btn-info btn-sm active  btn-up" role="button" aria-pressed="true">></a>
+                <div>Trier par titre</div>
+            </div>
+        </div>
+    </div>
     <div class="category-list">
         {% for playlist in playlists %}
             <div class="category">

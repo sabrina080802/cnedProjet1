@@ -213,6 +213,6 @@ class __TwigTemplate_b9570188b6d177459762d5d923680cf5 extends Template
             </div>
         {% endfor %}
     </div>
-{% endblock %}", "admin/admin.category.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/ProjetCNED1/mediatekFormation/templates/admin/admin.category.html.twig");
+{% endblock %}", "admin/admin.category.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/CNED1/templates/admin/admin.category.html.twig");
     }
 }

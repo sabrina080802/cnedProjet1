@@ -1,0 +1,7 @@
+[Sat Jan 27 21:04:24.376453 2024] [ssl:warn] [pid 80676] AH01906: www.example.com:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Sat Jan 27 21:04:24.377201 2024] [ssl:warn] [pid 80676] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Sat Jan 27 21:04:24.583405 2024] [ssl:warn] [pid 80678] AH01906: www.example.com:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Sat Jan 27 21:04:24.583448 2024] [ssl:warn] [pid 80678] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Sat Jan 27 21:04:24.583673 2024] [lbmethod_heartbeat:notice] [pid 80678] AH02282: No slotmem from mod_heartmonitor
+[Sat Jan 27 21:04:24.614956 2024] [mpm_prefork:notice] [pid 80678] AH00163: Apache/2.4.56 (Unix) OpenSSL/1.1.1t PHP/8.2.4 mod_perl/2.0.12 Perl/v5.34.1 configured -- resuming normal operations
+[Sat Jan 27 21:04:24.615025 2024] [core:notice] [pid 80678] AH00094: Command line: '/Applications/XAMPP/xamppfiles/bin/httpd -E /Applications/XAMPP/xamppfiles/logs/error_log -D SSL -D PHP'

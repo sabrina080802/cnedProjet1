@@ -20,10 +20,29 @@ class AdminPlaylistsController extends AbstractController
      */
     private $playlistRepository;
 
-    public function __construct(PlaylistRepository $playlistRepository)
-    {
+    /**
+     * 
+     * @var FormationRepository
+     */
+    private $formationRepository;
+
+    /**
+     * 
+     * @var CategorieRepository
+     */
+    private $categorieRepository;
+
+    public function __construct(
+        PlaylistRepository $playlistRepository,
+        CategorieRepository $categorieRepository,
+        FormationRepository $formationRespository
+    ) {
         $this->playlistRepository = $playlistRepository;
+        $this->categorieRepository = $categorieRepository;
+        $this->formationRepository = $formationRespository;
     }
+   // public function __construct(PlaylistRepository $playlistRepository)
+
 
     #[Route('/admin/playlists', name: 'admin.playlists')]
     public function index(): Response
@@ -34,10 +53,18 @@ class AdminPlaylistsController extends AbstractController
         ]);
     }
 
+    #[Route('/admin/playlists/form', name: 'admin.playlists.form')]
+    public function edit(): Response
+    {
+        return $this->render('admin/admin.playlists.html.twig', [
+            'controller_name' => 'AdminPlaylistsController',
+            'playlists' => $this->playlistRepository->findAll()
+        ]);
+    }
+
     #[Route('/admin/playlists/{id}', name: 'admin.playlists.remove')]
     public function remove($id): Response
     {
-
         //Utiliser le repository pour supprimer la playlist
         return $this->render('admin/admin.playlists.html.twig', [
             'controller_name' => 'AdminPlaylistsRepository',
@@ -45,6 +72,67 @@ class AdminPlaylistsController extends AbstractController
         ]);
     }
 
+     /*Modfier une playlist*/
+     public function update(Playlist $playlists, Request $request): Response{
+        $formPlaylist = $this->createForm(PlaylistType::class, $playlists);
+        
+        $formPlaylist->handleRequest($request);
+        if($formPlaylist->isSubmitted() && $formPlaylist->isValid()){
+            $this->playlistRepository->add($playlists, true);
+            return $this->redirectToRoute('admin.playlists');
+        }
+        
+        return $this->render("admin/admin.playlist.update.html.twig", [
+            'playlists' => $playlists,
+            'formplaylist' => $formPlaylist->createView()
+        ]);
+    }
+
+     /* Suppression d'une playlist*/
+    public function delete(Playlist $playlists): Response{
+        $this->playlistRepository->remove($playlists, true);
+        return $this->redirectToRoute('Admin.playlists.form');
+    }
+    
+    /**
+     * Ajouter une playlist
+     */
+    public function createPlaylists(Request $request): Response{
+        $playlist = new Playlist();
+        $formPlaylist = $this->createForm(PlaylistType::class, $playlist);
+        
+        $formPlaylist->handleRequest($request);
+        if($formPlaylist->isSubmitted() && $formPlaylist->isValid()){
+            $this->playlistRepository->add($playlist, true);
+            return $this->redirectToRoute('Admin.playlists.form');
+        }
+        
+        return $this->render("admin/admin.add.playlist.html.twig", [
+            'playlists' => $playlist,
+            'formPlaylist' => $formPlaylist->createView()                
+        ]);
+    }
+     /**
+     * Trier une playlist
+     */
+
+    #[Route('/admin/playlist/{champ}/{ordre}', name: 'admin.playlists.tri')]
+    public function sort($champ, $ordre): Response
+    {
+        $playlist = $this->playlistRepository->findAllOrderBy($champ, $ordre);
+        return $this->render('admin/admin.playlists.html.twig', [
+            'playlists' => $playlist,
+        ]);
+    }
+    
+    #[Route('/admin/playlist/search', name:'admin.playlists.search')]
+    public function search(Request $request):Response
+    {
+        $playlist = $this->playlistRepository->findAllByTitle($request->get('name'));
+        return $this->render('admin/admin.playlists.html.twig', [
+            'playlists' => $playlist,
+        ]);
+    }
 }
 
 

@@ -145,6 +145,7 @@ class __TwigTemplate_17a4cdc5481d89d76f0bb2e1c4e6da14 extends Template
                     </li> 
                     <li class=\"nav-item\">
                     </li> 
+                </ul>
             </div>
         </nav>        
     </div>
@@ -213,9 +214,10 @@ class __TwigTemplate_17a4cdc5481d89d76f0bb2e1c4e6da14 extends Template
                     </li> 
                     <li class=\"nav-item\">
                     </li> 
+                </ul>
             </div>
         </nav>        
     </div>
-{% endblock %}", "baseadmin.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/ProjetCNED1/mediatekFormation/templates/baseadmin.html.twig");
+{% endblock %}", "baseadmin.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/CNED1/templates/baseadmin.html.twig");
     }
 }

@@ -107,7 +107,33 @@ class PlaylistRepository extends ServiceEntityRepository
 
         }
     }
+     /**
+     * Retourne toutes les formations triées sur un champ
+     * @param type $champ
+     * @param type $ordre
+     * @param type $table si $champ dans une autre table
+     * @return Playlist[]
+     */
+    public function findAllOrderBy($champ, $ordre, $table=""): array{
+        if($table==""){
+            return $this->createQueryBuilder('f')
+                    ->orderBy('f.'.$champ, $ordre)
+                    ->getQuery()
+                    ->getResult();
+        }else{
+            return $this->createQueryBuilder('f')
+                    ->join('f.'.$table, 't')
+                    ->orderBy('t.'.$champ, $ordre)
+                    ->getQuery()
+                    ->getResult();            
+        }
+    }
 
-
-
+    public function findAllByTitle($name):array{
+        return $this->createQueryBuilder('p')
+            ->where('p.name LIKE :name')
+            ->setParameter('name', '%' . $name . '%')
+            ->getQuery()
+            ->getResult();
+    }
 }

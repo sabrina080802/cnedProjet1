@@ -52,12 +52,11 @@ class PlaylistsController extends AbstractController {
      * @Route("/playlists", name="playlists")
      * @return Response
      */
-    #[Route('/admin/playlists', name: 'admin.playlists')]
-
+    #[Route('/playlists', name: 'playlists')]
     public function index(): Response{
         $playlists = $this->playlistRepository->findAllOrderByName('ASC');
         $categories = $this->categorieRepository->findAll();
-        return $this->render("admin/admin.playlists.html.twig", [
+        return $this->render("pages/playlists.html.twig", [
             'controller_name' => 'PlaylistsController',
             'playlists' => $playlists,
             'categories' => $categories            
@@ -75,7 +74,7 @@ class PlaylistsController extends AbstractController {
             case "name":
                 $playlists = $this->playlistRepository->findAllOrderByName($ordre);
                 break;
-            case "formations":
+            case "playlist":
                 $playlists = $this->playlistRepository->findAllOrderByFormationsCount($ordre);
                 break;
         }
@@ -120,48 +119,4 @@ class PlaylistsController extends AbstractController {
             'playlistformations' => $playlistFormations
         ]);        
     }
-
-    /*Modfier une playlist*/
-    public function update(Playlist $playlists, Request $request): Response{
-        $formPlaylist = $this->createForm(PlaylistType::class, $playlists);
-        
-        $formPlaylist->handleRequest($request);
-        if($formPlaylist->isSubmitted() && $formPlaylist->isValid()){
-            $this->playlistRepository->add($playlists, true);
-            return $this->redirectToRoute('admin.playlists');
-        }
-        
-        return $this->render("admin/admin.playlist.update.html.twig", [
-            'playlists' => $playlists,
-            'formplaylist' => $formPlaylist->createView()
-        ]);
-    }
-
-     /* Suppression d'une playlist*/
-    public function delete(Playlist $playlists): Response{
-        $this->playlistRepository->remove($playlists, true);
-        return $this->redirectToRoute('Admin.playlists.form');
-    }
-    
-    /**
-     * Ajouter une playlist
-     */
-    
-
-    public function createPlaylists(Request $request): Response{
-        $playlist = new Playlist();
-        $formPlaylist = $this->createForm(PlaylistType::class, $playlist);
-        
-        $formPlaylist->handleRequest($request);
-        if($formPlaylist->isSubmitted() && $formPlaylist->isValid()){
-            $this->playlistRepository->add($playlist, true);
-            return $this->redirectToRoute('Admin.playlists.form');
-        }
-        
-        return $this->render("admin/admin.add.playlist.html.twig", [
-            'playlist' => $playlist,
-            'formPlaylist' => $formPlaylist->createView()                
-        ]);
-    }
-    
 }

@@ -104,12 +104,6 @@ return [[
 '[C]App%5CController%5CPlaylistsController%23findAllContain' => 1,
 'App%5CController%5CPlaylistsController%23showOne' => 11,
 '[C]App%5CController%5CPlaylistsController%23showOne' => 1,
-'App%5CController%5CPlaylistsController%23update' => 0,
-'[C]App%5CController%5CPlaylistsController%23update' => 1,
-'App%5CController%5CPlaylistsController%23delete' => 0,
-'[C]App%5CController%5CPlaylistsController%23delete' => 1,
-'App%5CController%5CPlaylistsController%23createPlaylists' => 0,
-'[C]App%5CController%5CPlaylistsController%23createPlaylists' => 1,
 'App%5CController%5CPlaylistsController%24playlistRepository' => 0,
 '[C]App%5CController%5CPlaylistsController%24playlistRepository' => 1,
 'App%5CController%5CPlaylistsController%24formationRepository' => 0,
@@ -768,7 +762,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1706132875,
+1 => 1706396146,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
