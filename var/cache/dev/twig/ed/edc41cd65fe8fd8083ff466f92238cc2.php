@@ -70,7 +70,7 @@ class __TwigTemplate_bc8ff36345f3760ecd4a4bec0dd1e308 extends Template
         echo "
 
     <div class=\"row\">
-        <div class=\"col>
+        <div class=\"col\">
             <div class=\"row\">
                 <div class=\"col-auto\">
                     ";
@@ -160,7 +160,7 @@ class __TwigTemplate_bc8ff36345f3760ecd4a4bec0dd1e308 extends Template
     {{ form_start(formformation) }}
 
     <div class=\"row\">
-        <div class=\"col>
+        <div class=\"col\">
             <div class=\"row\">
                 <div class=\"col-auto\">
                     {{ form_row(formformation.title) }}

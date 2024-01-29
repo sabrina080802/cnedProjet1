@@ -31,7 +31,7 @@ class __TwigTemplate_f2fe43fb135879bd2f5ea01d66e19c91 extends Template
 
     protected function doGetParent(array $context)
     {
-        // line 1
+        // line 4
         return "baseadmin.html.twig";
     }
 
@@ -44,7 +44,7 @@ class __TwigTemplate_f2fe43fb135879bd2f5ea01d66e19c91 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "admin/admin.playlists.form.html.twig"));
 
-        $this->parent = $this->loadTemplate("baseadmin.html.twig", "admin/admin.playlists.form.html.twig", 1);
+        $this->parent = $this->loadTemplate("baseadmin.html.twig", "admin/admin.playlists.form.html.twig", 4);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -54,7 +54,7 @@ class __TwigTemplate_f2fe43fb135879bd2f5ea01d66e19c91 extends Template
 
     }
 
-    // line 3
+    // line 6
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -64,40 +64,36 @@ class __TwigTemplate_f2fe43fb135879bd2f5ea01d66e19c91 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 4
+        // line 7
         echo "
 ";
-        // line 5
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 5, $this->source); })()), 'form_start');
+        // line 8
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 8, $this->source); })()), 'form_start');
         echo "
-
     <div class=\"row\">
             <div class=\"col\">             
                 <div class=\"row\">
                     <div class=\"col-auto\">
                         ";
-        // line 11
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 11, $this->source); })()), "name", [], "any", false, false, false, 11), 'row');
+        // line 13
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 13, $this->source); })()), "name", [], "any", false, false, false, 13), 'row');
         echo "
                     </div>
                     <div class=\"col\">
                         ";
-        // line 14
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 14, $this->source); })()), "description", [], "any", false, false, false, 14), 'row');
+        // line 16
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 16, $this->source); })()), "description", [], "any", false, false, false, 16), 'row');
         echo "
                     </div>
                     <div class=\"col\">
-                        ";
-        // line 17
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 17, $this->source); })()), "submit", [], "any", false, false, false, 17), 'row');
-        echo "
+                        
                     </div>  
                 </div>
             </div>
     </div>
 ";
-        // line 22
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 22, $this->source); })()), 'form_end');
+        // line 24
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 24, $this->source); })()), 'form_end');
         echo "
 ";
         
@@ -129,17 +125,19 @@ class __TwigTemplate_f2fe43fb135879bd2f5ea01d66e19c91 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  100 => 22,  92 => 17,  86 => 14,  80 => 11,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  96 => 24,  85 => 16,  79 => 13,  71 => 8,  68 => 7,  58 => 6,  35 => 4,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"baseadmin.html.twig\" %}
+        return new Source("{# admin.playlists.form #}
+
+
+{% extends \"baseadmin.html.twig\" %}
 
 {% block body %}
 
 {{ form_start(formplaylist) }}
-
     <div class=\"row\">
             <div class=\"col\">             
                 <div class=\"row\">
@@ -150,7 +148,7 @@ class __TwigTemplate_f2fe43fb135879bd2f5ea01d66e19c91 extends Template
                         {{ form_row(formplaylist.description) }}
                     </div>
                     <div class=\"col\">
-                        {{ form_row(formplaylist.submit) }}
+                        
                     </div>  
                 </div>
             </div>
