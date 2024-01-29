@@ -72,3 +72,5 @@ d5ceb9,88.166.104.72,GET,http://92.140.237.238/CNED1/public/index.php/admin/form
 5acb0f,88.166.104.72,GET,http://92.140.237.238/CNED1/public/index.php/admin/formations/title/DESC,1706396368,,200
 1a362a,88.166.104.72,GET,http://92.140.237.238/CNED1/public/index.php/admin/formations/title?_token=08e058a68eb6fd6b87d8.c9rnZYdG0et_HTf7NykmNGXyqTF1KNU_QjFJ75L2rkA.J6CCMeAM5N4wTH2oQU9sASqn_EcEcZJWA2IIsNC99DcZvq5V_nPi0g5eYg&title=androd,1706396370,,200
 e67876,88.166.104.72,GET,http://92.140.237.238/CNED1/public/index.php/admin/formations/title?_token=42d58f395fba.a3PsZC2r9MFQd0H4ipKhqOy77ZSH9ZQmy9387o0Oux4.PwmJMErhwfQfJgur_PTrnaPuuOL2rNNPio69sc9F4WkBF6VUVJ7H-CE0FA&title=android,1706396372,,200
+6233aa,::1,GET,http://localhost/CNED1/public/index.php/admin/playlists,1706564424,,200
+76d277,::1,GET,http://localhost/CNED1/public/index.php/,1706564426,,200
