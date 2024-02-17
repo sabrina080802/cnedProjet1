@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Playlist;
 use App\Form\PlaylistType;
+use App\Controller\AdminPlaylistsController;
 
 class AdminPlaylistsController extends AbstractController
 {
@@ -50,54 +51,23 @@ class AdminPlaylistsController extends AbstractController
     {
         return $this->render('admin/admin.playlists.html.twig', [
             'controller_name' => 'AdminPlaylistsController',
-            'playlists' => $this->playlistRepository->findAll()
+            'playlists' => $this->playlistRepository->findAll(),
+            'categories' => $this->categorieRepository->findAll()
         ]);
-    }
-
-    #[Route('/admin/playlists/delete/{id}', name: 'admin.playlists.remove')]
-    public function remove($id): Response
-    {
-        //Utiliser le repository pour supprimer la playlist
-        return $this->render('admin/admin.playlists.html.twig', [
-            'controller_name' => 'AdminPlaylistsRepository',
-            'playlists' => $this->playlistRepository->findAll()
-        ]);
-    }
-
-    /*Modfier une playlist*/
-    /*public function update(Playlist $playlists, Request $request): Response
-    {
-        $formPlaylist = $this->createForm(PlaylistType::class, $playlists);
-
-        $formPlaylist->handleRequest($request);
-        if ($formPlaylist->isSubmitted() && $formPlaylist->isValid()) {
-            $this->playlistRepository->add($playlists, true);
-            return $this->redirectToRoute('admin.playlists');
-        }
-
-        return $this->render("admin/admin.playlist.update.html.twig", [
-            'playlists' => $playlists,
-            'formplaylist' => $formPlaylist->createView()
-        ]);
-    }*/
-
-    /* Suppression d'une playlist*/
-    public function delete(Playlist $playlists): Response
-    {
-        $this->playlistRepository->remove($playlists, true);
-        return $this->redirectToRoute('Admin.playlists.form');
     }
 
     /**
      * Trier une playlist
      */
-
     #[Route('/admin/playlist/{champ}/{ordre}', name: 'admin.playlists.tri')]
     public function sort($champ, $ordre): Response
     {
         $playlist = $this->playlistRepository->findAllOrderBy($champ, $ordre);
         return $this->render('admin/admin.playlists.html.twig', [
+            
             'playlists' => $playlist,
+            'categories' => $this->categorieRepository->findAll()
+
         ]);
     }
 
@@ -107,22 +77,72 @@ class AdminPlaylistsController extends AbstractController
         $playlist = $this->playlistRepository->findAllByTitle($request->get('name'));
         return $this->render('admin/admin.playlists.html.twig', [
             'playlists' => $playlist,
+            'categories' => $this->categorieRepository->findAll()
         ]);
     }
 
     #[Route('/admin/playlists/form', name: 'admin.playlists.form')]
     public function create(Request $request): Response
     {
-        $form = $this->createForm(PlaylistType::class);
+        if ($request->get('id')) {
+            $playlist = $this->playlistRepository->findById($request->get('id'));
+            if ($playlist == null) {
+                $playlist = new Playlist();
+            }
+        } else {
+            $playlist = new Playlist();
+        }
+        $form = $this->createForm(PlaylistType::class, $playlist);
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($playlist);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('admin.playlists');
             }
         }
 
         return $this->render('admin/admin.playlists.form.html.twig', [
+            'playlist' => $playlist,
             'formplaylist' => $form->createView(),
+            'categories' => $this->categorieRepository->findAll()
+        ]);
+    }
+
+     /**
+     * @Route("/admin/playlists/recherche/{champ}/{table}", name="admin.playlists.findallcontain")
+     * @param type $champ
+     * @param Request $request
+     * @param type $table
+     * @return Response
+     */
+    public function findAllContain($champ, Request $request, $table=""): Response{
+        $valeur = $request->get("recherche");
+        $playlists = $this->playlistRepository->findByContainValue($champ, $valeur, $table);
+        $categories = $this->categorieRepository->findAll();
+        return $this->render("admin/admin.playlists.html.twig", [
+            'playlists' => $playlists,
+            'categories' => $categories,
+            'valeur' => $valeur,
+            'table' => $table
+        ]);
+    } 
+
+    #[Route('/admin/playlists/remove', name:'admin.playlists.remove')]
+    public function remove(Request $request):Response{
+        $deleted = $this->playlistRepository->findById($request->get('id'));
+        if($deleted != null){
+            $this->playlistRepository->remove($deleted, true);
+        }
+
+        $playlists = $this->playlistRepository->findAll();
+        $categories = $this->categorieRepository->findAll();
+        return $this->render('admin/admin.playlists.html.twig', [
+            'playlists' => $playlists,
+            'categories' => $categories,
         ]);
     }
 }

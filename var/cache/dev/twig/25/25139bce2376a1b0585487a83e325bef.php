@@ -74,74 +74,113 @@ class __TwigTemplate_5872e94c00241f8d848cc94962d9533f extends Template
             <div class=\"field\">
                 <form action=\"";
         // line 8
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations.title", ["champ" => "title"]);
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations.playlist", ["champ" => "playlist"]);
         echo "\">
-                    <input type=\"text\" class=\"sm\" name=\"title\" value=\"";
+                    <input type=\"text\" class=\"sm\" name=\"playlist\" value=\"";
         // line 9
         if ((((array_key_exists("valeur", $context)) ? (_twig_default_filter((isset($context["valeur"]) || array_key_exists("valeur", $context) ? $context["valeur"] : (function () { throw new RuntimeError('Variable "valeur" does not exist.', 9, $this->source); })()))) : ("")) &&  !((array_key_exists("table", $context)) ? (_twig_default_filter((isset($context["table"]) || array_key_exists("table", $context) ? $context["table"] : (function () { throw new RuntimeError('Variable "table" does not exist.', 9, $this->source); })()))) : ("")))) {
             echo twig_escape_filter($this->env, (isset($context["valeur"]) || array_key_exists("valeur", $context) ? $context["valeur"] : (function () { throw new RuntimeError('Variable "valeur" does not exist.', 9, $this->source); })()), "html", null, true);
+            echo " ";
         }
-        echo "\">
+        echo "\" placeholder=\"Rechercher par playlist\">
                     <input type=\"hidden\" name=\"_token\" value=\"";
         // line 10
+        echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("filtre_playlist"), "html", null, true);
+        echo "\">
+                    <button type=\"submit\" class=\"btn btn-info\">Chercher</button>
+                </form>
+            </div>
+            <div class=\"field ordered\">
+                <div>Ordre par nom de playlist</div>
+                <a href=\"";
+        // line 16
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations.tri", ["champ" => "playlist", "ordre" => "DESC"]), "html", null, true);
+        echo "\" class=\"btn btn-info btn-sm active btn-up\" role=\"button\" aria-pressed=\"true\"><</a>
+                <a href=\"";
+        // line 17
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations.tri", ["champ" => "playlist", "ordre" => "ASC"]), "html", null, true);
+        echo "\" class=\"btn btn-info btn-sm active btn-down\" role=\"button\" aria-pressed=\"true\">></a>
+            </div>
+            <div class=\"field\">
+                <form action=\"";
+        // line 20
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations.title", ["champ" => "title"]);
+        echo "\">
+                    <input type=\"text\" class=\"sm\" name=\"title\" value=\"";
+        // line 21
+        if ((((array_key_exists("valeur", $context)) ? (_twig_default_filter((isset($context["valeur"]) || array_key_exists("valeur", $context) ? $context["valeur"] : (function () { throw new RuntimeError('Variable "valeur" does not exist.', 21, $this->source); })()))) : ("")) &&  !((array_key_exists("table", $context)) ? (_twig_default_filter((isset($context["table"]) || array_key_exists("table", $context) ? $context["table"] : (function () { throw new RuntimeError('Variable "table" does not exist.', 21, $this->source); })()))) : ("")))) {
+            echo twig_escape_filter($this->env, (isset($context["valeur"]) || array_key_exists("valeur", $context) ? $context["valeur"] : (function () { throw new RuntimeError('Variable "valeur" does not exist.', 21, $this->source); })()), "html", null, true);
+        }
+        echo "\" placeholder=\"Rechercher par titre\">
+                    <input type=\"hidden\" name=\"_token\" value=\"";
+        // line 22
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("filtre_title"), "html", null, true);
         echo "\">
                     <button type=\"submit\" class=\"btn btn-info\">Chercher</button>
                 </form>
             </div>
-            <div class=\"field\">
+            <div class=\"field ordered\">
+                <div>Ordre par titre </div>
                 <a href=\"";
-        // line 15
+        // line 28
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations.tri", ["champ" => "title", "ordre" => "DESC"]), "html", null, true);
         echo "\" class=\"btn btn-info btn-sm active btn-up\" role=\"button\" aria-pressed=\"true\"><</a>
                 <a href=\"";
-        // line 16
+        // line 29
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations.tri", ["champ" => "title", "ordre" => "ASC"]), "html", null, true);
         echo "\" class=\"btn btn-info btn-sm active btn-down\" role=\"button\" aria-pressed=\"true\">></a>
-                <div>Trier par titre</div>
             </div>
         </div>
     </div>
     <div class=\"category-list\">
         ";
-        // line 22
+        // line 34
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["formations"]) || array_key_exists("formations", $context) ? $context["formations"] : (function () { throw new RuntimeError('Variable "formations" does not exist.', 22, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["formations"]) || array_key_exists("formations", $context) ? $context["formations"] : (function () { throw new RuntimeError('Variable "formations" does not exist.', 34, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["formation"]) {
-            // line 23
+            // line 35
             echo "            <div class=\"category\">
                 <h4>";
-            // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "title", [], "any", false, false, false, 24), "html", null, true);
+            // line 36
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "title", [], "any", false, false, false, 36), "html", null, true);
             echo "</h4>
                 <div class=\"tag-list\">
                     <b>Catégories :</b>
                     ";
-            // line 27
+            // line 39
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["formation"], "categories", [], "any", false, false, false, 27));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["formation"], "categories", [], "any", false, false, false, 39));
             foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-                // line 28
+                // line 40
                 echo "                        <span>";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 28), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 40), "html", null, true);
                 echo "</span>
                     ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 30
+            // line 42
             echo "                </div>
                 <div class=\"description\">
                     <b>Description :</b><br/>
                     ";
-            // line 33
-            echo twig_replace_filter(twig_get_attribute($this->env, $this->source, $context["formation"], "description", [], "any", false, false, false, 33), ["
+            // line 45
+            echo twig_replace_filter(twig_get_attribute($this->env, $this->source, $context["formation"], "description", [], "any", false, false, false, 45), ["
 " => "<br>", "" => "<br>"]);
             echo "
                 </div>
                 <div class=\"menu\">
-                    
+                    <a href=\"";
+            // line 48
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations.form", ["id" => twig_get_attribute($this->env, $this->source, $context["formation"], "id", [], "any", false, false, false, 48)]), "html", null, true);
+            echo "\" class=\"btn btn-info\">Modifier</a>
+                    <a href=\"";
+            // line 49
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations.remove", ["id" => twig_get_attribute($this->env, $this->source, $context["formation"], "id", [], "any", false, false, false, 49)]), "html", null, true);
+            echo "\" class=\"btn btn-danger\" onclick=\"return confirm('Etes-vous sûr de vouloir supprimer ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "title", [], "any", false, false, false, 49), "html", null, true);
+            echo " ?')\">Supprimer</a>
                 </div>
             </div>
         ";
@@ -149,7 +188,7 @@ class __TwigTemplate_5872e94c00241f8d848cc94962d9533f extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['formation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 40
+        // line 53
         echo "    </div>
 ";
         
@@ -181,7 +220,7 @@ class __TwigTemplate_5872e94c00241f8d848cc94962d9533f extends Template
      */
     public function getDebugInfo()
     {
-        return array (  153 => 40,  139 => 33,  134 => 30,  125 => 28,  121 => 27,  115 => 24,  112 => 23,  108 => 22,  99 => 16,  95 => 15,  87 => 10,  81 => 9,  77 => 8,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  192 => 53,  180 => 49,  176 => 48,  169 => 45,  164 => 42,  155 => 40,  151 => 39,  145 => 36,  142 => 35,  138 => 34,  130 => 29,  126 => 28,  117 => 22,  111 => 21,  107 => 20,  101 => 17,  97 => 16,  88 => 10,  81 => 9,  77 => 8,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -193,16 +232,28 @@ class __TwigTemplate_5872e94c00241f8d848cc94962d9533f extends Template
         <a href=\"{{ path('admin.formations.form') }}\" class=\"btn\">Nouvelle formation</a>
         <div class=\"sort-by\">
             <div class=\"field\">
+                <form action=\"{{ path('admin.formations.playlist', {champ: 'playlist'}) }}\">
+                    <input type=\"text\" class=\"sm\" name=\"playlist\" value=\"{% if valeur|default and not table|default %}{{ valeur}} {% endif %}\" placeholder=\"Rechercher par playlist\">
+                    <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('filtre_playlist') }}\">
+                    <button type=\"submit\" class=\"btn btn-info\">Chercher</button>
+                </form>
+            </div>
+            <div class=\"field ordered\">
+                <div>Ordre par nom de playlist</div>
+                <a href=\"{{ path('admin.formations.tri', {champ: 'playlist', ordre: 'DESC'}) }}\" class=\"btn btn-info btn-sm active btn-up\" role=\"button\" aria-pressed=\"true\"><</a>
+                <a href=\"{{ path('admin.formations.tri', {champ: 'playlist', ordre: 'ASC'}) }}\" class=\"btn btn-info btn-sm active btn-down\" role=\"button\" aria-pressed=\"true\">></a>
+            </div>
+            <div class=\"field\">
                 <form action=\"{{ path('admin.formations.title', {champ: 'title'}) }}\">
-                    <input type=\"text\" class=\"sm\" name=\"title\" value=\"{% if valeur|default and not table|default %}{{ valeur }}{% endif %}\">
+                    <input type=\"text\" class=\"sm\" name=\"title\" value=\"{% if valeur|default and not table|default %}{{ valeur }}{% endif %}\" placeholder=\"Rechercher par titre\">
                     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('filtre_title') }}\">
                     <button type=\"submit\" class=\"btn btn-info\">Chercher</button>
                 </form>
             </div>
-            <div class=\"field\">
+            <div class=\"field ordered\">
+                <div>Ordre par titre </div>
                 <a href=\"{{ path('admin.formations.tri', {champ: 'title', ordre: 'DESC'}) }}\" class=\"btn btn-info btn-sm active btn-up\" role=\"button\" aria-pressed=\"true\"><</a>
                 <a href=\"{{ path('admin.formations.tri', {champ: 'title', ordre: 'ASC'}) }}\" class=\"btn btn-info btn-sm active btn-down\" role=\"button\" aria-pressed=\"true\">></a>
-                <div>Trier par titre</div>
             </div>
         </div>
     </div>
@@ -221,7 +272,8 @@ class __TwigTemplate_5872e94c00241f8d848cc94962d9533f extends Template
                     {{ formation.description|replace({'\\n': '<br>', '\\r':'<br>'})|raw }}
                 </div>
                 <div class=\"menu\">
-                    
+                    <a href=\"{{ path('admin.formations.form', {id: formation.id})}}\" class=\"btn btn-info\">Modifier</a>
+                    <a href=\"{{ path('admin.formations.remove', {id: formation.id}) }}\" class=\"btn btn-danger\" onclick=\"return confirm('Etes-vous sûr de vouloir supprimer {{ formation.title }} ?')\">Supprimer</a>
                 </div>
             </div>
         {% endfor %}

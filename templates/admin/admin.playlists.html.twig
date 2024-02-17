@@ -3,7 +3,7 @@
      <div class="data-menu">
         <a href="{{ path('admin.playlists.form') }}" class="btn"> Nouvelle playlist </a>
         <div class="sort-by">
-        <div class="field">
+            <div class="field">
                 <form action="{{ path('admin.playlists.search', {champ: 'name'}) }}">
                     <input type="text" class="sm" name="name" value="{% if valeur|default and not table|default %}{{ valeur }}{% endif %}">
                     <input type="hidden" name="_token" value="{{ csrf_token('filtre_name') }}">
@@ -11,9 +11,25 @@
                 </form>
             </div>
             <div class="field">
+                <div>Catégories : </div>
+                <form method="POST" action="{{ path('admin.playlists.findallcontain', {champ:'id', table:'categories'}) }}">
+                    <select class="form-select form-select-sm" name="recherche" id="recherche" onchange="this.form.submit()">
+                        <option value=""></option>
+                        {% for categorie in categories %}
+                            <option
+                                {% if valeur|default and valeur==categorie.id %} 
+                                    selected
+                                {% endif %} 
+                                value="{{ categorie.id }}">{{ categorie.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+            <div class="field">
+                <div>Trier par titre :</div>
                 <a href="{{ path('admin.playlists.tri', {champ: 'name', ordre: 'DESC'}) }}" class="btn btn-info btn-sm active  btn-up" role="button" aria-pressed="true"><</a>
                 <a href="{{ path('admin.playlists.tri', {champ: 'name', ordre: 'ASC'}) }}" class="btn btn-info btn-sm active  btn-up" role="button" aria-pressed="true">></a>
-                <div>Trier par titre</div>
             </div>
         </div>
     </div>
@@ -28,8 +44,13 @@
                         {{ formation.title }}<br />
                     {% endfor %}
                 </div>
-                <div class="btn-delete">
-                    <a href="{{ path('admin.playlists.remove', {id: playlist.id}) }}" class="btn btn-danger" {% if playlist.formations|length == 0 %}onclick="return confirm('Etes-vous sûr de vouloir supprimer {{ playlist.name }} ?')"{% endif %}>Supprimer</a>
+                <div class="menu">
+                    <a href="{{ path('admin.playlists.form', {id: playlist.id})}}" class="btn btn-info">Modifier</a>
+                    {% if playlist.formations|length == 0 %}
+                        <a href="{{ path('admin.playlists.remove', {id: playlist.id}) }}" class="btn btn-danger" onclick="return confirm('Etes-vous sûr de vouloir supprimer {{ playlist.name }} ?')">Supprimer</a>
+                    {% else %}
+                        <button class="btn btn-danger" onclick="alert('Vous ne pouvez pas supprimer votre playlist car elle est liée à une ou plusieurs formations.')">Supprimer</button>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}

@@ -31,13 +31,12 @@ class PlaylistRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Playlist $entity, bool $flush = false): void
-    {
-        $this->getEntityManager()->remove($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+    public function findById($id):Playlist|null{
+        return $this->createQueryBuilder('p')
+            ->where('p.id=:id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 
     /**

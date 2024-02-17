@@ -6,20 +6,18 @@
 {% block body %}
 
 {{ form_start(formplaylist) }}
-    <div class="row">
-            <div class="col">             
-                <div class="row">
-                    <div class="col-auto">
-                        {{ form_row(formplaylist.name) }}
-                    </div>
-                    <div class="col">
-                        {{ form_row(formplaylist.description) }}
-                    </div>
-                    <div class="col">
-                        
-                    </div>  
-                </div>
+    <div class="form-container">
+        {{ form_row(formplaylist.name) }}
+        {{ form_row(formplaylist.description) }}
+        {% if playlist.formations|length > 0 %}
+            <div class="formations-list">
+                <h4>Liste des formations de cette playlist :</h4>
+                {% for formation in playlist.formations %}
+                    <div>-> {{ formation.title }}</div>
+                {% endfor %}
             </div>
+        {% endif %}
+        {{form_row(formplaylist.submit, {'label': 'Valider'})}}
     </div>
 {{ form_end(formplaylist) }}
 {% endblock %}

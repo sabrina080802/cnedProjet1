@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Formation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+Use App\Repository\FormationRepository\Response;
 
 /**
  * @extends ServiceEntityRepository<Formation>
@@ -30,13 +31,12 @@ class FormationRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Formation $entity, bool $flush = false): void
-    {
-        $this->getEntityManager()->remove($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+    public function findById($id):Formation|null{
+        return $this->createQueryBuilder('f')
+            ->where('f.id=:id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 
     /**
@@ -128,7 +128,7 @@ class FormationRepository extends ServiceEntityRepository
     public function findAllByPlaylistName($playlist) :array{
         return $this->createQueryBuilder('f')
             ->join('f.playlist', 'p')
-            ->where('p.name=:name')
+            ->where('p.name LIKE :name')
             ->setParameter('name', '%' . $playlist . '%')
             ->orderBy('f.publishedAt', 'ASC')
             ->getQuery()

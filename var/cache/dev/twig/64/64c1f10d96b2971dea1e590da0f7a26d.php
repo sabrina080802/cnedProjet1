@@ -70,30 +70,47 @@ class __TwigTemplate_132c4a3acec9985000203fe0d335be38 extends Template
         // line 8
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 8, $this->source); })()), 'form_start');
         echo "
-    <div class=\"row\">
-            <div class=\"col\">             
-                <div class=\"row\">
-                    <div class=\"col-auto\">
-                        ";
-        // line 13
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 13, $this->source); })()), "name", [], "any", false, false, false, 13), 'row');
+    <div class=\"form-container\">
+        ";
+        // line 10
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 10, $this->source); })()), "name", [], "any", false, false, false, 10), 'row');
         echo "
-                    </div>
-                    <div class=\"col\">
-                        ";
-        // line 16
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 16, $this->source); })()), "description", [], "any", false, false, false, 16), 'row');
+        ";
+        // line 11
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 11, $this->source); })()), "description", [], "any", false, false, false, 11), 'row');
         echo "
-                    </div>
-                    <div class=\"col\">
-                        
-                    </div>  
-                </div>
-            </div>
+        ";
+        // line 12
+        if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["playlist"]) || array_key_exists("playlist", $context) ? $context["playlist"] : (function () { throw new RuntimeError('Variable "playlist" does not exist.', 12, $this->source); })()), "formations", [], "any", false, false, false, 12)) > 0)) {
+            // line 13
+            echo "            <div class=\"formations-list\">
+                <h4>Liste des formations de cette playlist :</h4>
+                ";
+            // line 15
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["playlist"]) || array_key_exists("playlist", $context) ? $context["playlist"] : (function () { throw new RuntimeError('Variable "playlist" does not exist.', 15, $this->source); })()), "formations", [], "any", false, false, false, 15));
+            foreach ($context['_seq'] as $context["_key"] => $context["formation"]) {
+                // line 16
+                echo "                    <div>-> ";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "title", [], "any", false, false, false, 16), "html", null, true);
+                echo "</div>
+                ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['formation'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 18
+            echo "            </div>
+        ";
+        }
+        // line 20
+        echo "        ";
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 20, $this->source); })()), "submit", [], "any", false, false, false, 20), 'row', ["label" => "Valider"]);
+        echo "
     </div>
 ";
-        // line 24
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 24, $this->source); })()), 'form_end');
+        // line 22
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formplaylist"]) || array_key_exists("formplaylist", $context) ? $context["formplaylist"] : (function () { throw new RuntimeError('Variable "formplaylist" does not exist.', 22, $this->source); })()), 'form_end');
         echo "
 ";
         
@@ -125,7 +142,7 @@ class __TwigTemplate_132c4a3acec9985000203fe0d335be38 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  96 => 24,  85 => 16,  79 => 13,  71 => 8,  68 => 7,  58 => 6,  35 => 4,);
+        return array (  113 => 22,  107 => 20,  103 => 18,  94 => 16,  90 => 15,  86 => 13,  84 => 12,  80 => 11,  76 => 10,  71 => 8,  68 => 7,  58 => 6,  35 => 4,);
     }
 
     public function getSourceContext()
@@ -138,20 +155,18 @@ class __TwigTemplate_132c4a3acec9985000203fe0d335be38 extends Template
 {% block body %}
 
 {{ form_start(formplaylist) }}
-    <div class=\"row\">
-            <div class=\"col\">             
-                <div class=\"row\">
-                    <div class=\"col-auto\">
-                        {{ form_row(formplaylist.name) }}
-                    </div>
-                    <div class=\"col\">
-                        {{ form_row(formplaylist.description) }}
-                    </div>
-                    <div class=\"col\">
-                        
-                    </div>  
-                </div>
+    <div class=\"form-container\">
+        {{ form_row(formplaylist.name) }}
+        {{ form_row(formplaylist.description) }}
+        {% if playlist.formations|length > 0 %}
+            <div class=\"formations-list\">
+                <h4>Liste des formations de cette playlist :</h4>
+                {% for formation in playlist.formations %}
+                    <div>-> {{ formation.title }}</div>
+                {% endfor %}
             </div>
+        {% endif %}
+        {{form_row(formplaylist.submit, {'label': 'Valider'})}}
     </div>
 {{ form_end(formplaylist) }}
 {% endblock %}", "admin/admin.playlists.form.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/CNED1/templates/admin/admin.playlists.form.html.twig");

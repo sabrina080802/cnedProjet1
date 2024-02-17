@@ -147,7 +147,7 @@ class __TwigTemplate_f2b2a2b7d7ab4e78f038d9cbb1383d2c extends Template
         // line 37
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("playlists.sort", ["champ" => "formations", "ordre" => "DESC"]), "html", null, true);
         echo "\" class=\"btn btn-info btn-sm active\" role=\"button\" aria-pressed=\"true\">></a>
-                </th>\t\t\t\t
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -293,7 +293,7 @@ class __TwigTemplate_f2b2a2b7d7ab4e78f038d9cbb1383d2c extends Template
                 <th class=\"text-center align-top\" scope=\"col\">
                     <a href=\"{{ path('playlists.sort', {champ:'formations', ordre:'ASC'}) }}\" class=\"btn btn-info btn-sm active\" role=\"button\" aria-pressed=\"true\"><</a>
                     <a href=\"{{ path('playlists.sort', {champ:'formations', ordre:'DESC'}) }}\" class=\"btn btn-info btn-sm active\" role=\"button\" aria-pressed=\"true\">></a>
-                </th>\t\t\t\t
+                </th>
             </tr>
         </thead>
         <tbody>

@@ -132,7 +132,10 @@ class __TwigTemplate_17a4cdc5481d89d76f0bb2e1c4e6da14 extends Template
         // line 17
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.category");
         echo "\">Gestion des catégories</a>
-            <a class=\"btn-disconnect\">Se déconnecter</a>
+            <a class=\"btn-disconnect\" href=\"";
+        // line 18
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+        echo "\">Se déconnecter</a>
         </div>
 
         <!-- menu -->
@@ -179,7 +182,7 @@ class __TwigTemplate_17a4cdc5481d89d76f0bb2e1c4e6da14 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  133 => 17,  129 => 16,  125 => 15,  121 => 14,  111 => 9,  106 => 6,  96 => 5,  78 => 4,  60 => 3,  37 => 1,);
+        return array (  137 => 18,  133 => 17,  129 => 16,  125 => 15,  121 => 14,  111 => 9,  106 => 6,  96 => 5,  78 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -201,7 +204,7 @@ class __TwigTemplate_17a4cdc5481d89d76f0bb2e1c4e6da14 extends Template
             <a href=\"{{ path('admin.formations') }}\">Gestion des formations</a>
             <a href=\"{{ path('admin.playlists') }}\">Gestion des playlists</a>
             <a href=\"{{ path('admin.category') }}\">Gestion des catégories</a>
-            <a class=\"btn-disconnect\">Se déconnecter</a>
+            <a class=\"btn-disconnect\" href=\"{{ path('logout') }}\">Se déconnecter</a>
         </div>
 
         <!-- menu -->

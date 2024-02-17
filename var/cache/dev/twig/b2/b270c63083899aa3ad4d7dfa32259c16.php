@@ -68,54 +68,39 @@ class __TwigTemplate_eb1d06e4751180237ad35458e094a7c8 extends Template
         echo "    ";
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 6, $this->source); })()), 'form_start');
         echo "
-
-    <div class=\"row\">
-        <div class=\"col\">
-            <div class=\"row\">
-                <div class=\"col-auto\">
-                    ";
+    <div class=\"form-container\">
+        ";
+        // line 8
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 8, $this->source); })()), "title", [], "any", false, false, false, 8), 'row');
+        echo "
+        ";
+        // line 9
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 9, $this->source); })()), "description", [], "any", false, false, false, 9), 'row');
+        echo "
+        ";
+        // line 10
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 10, $this->source); })()), "publishedAt", [], "any", false, false, false, 10), 'row');
+        echo "
+        ";
+        // line 11
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 11, $this->source); })()), "playlist", [], "any", false, false, false, 11), 'row');
+        echo "
+        ";
         // line 12
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 12, $this->source); })()), "title", [], "any", false, false, false, 12), 'row');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 12, $this->source); })()), "videoId", [], "any", false, false, false, 12), 'row');
         echo "
-                </div>
-                <div class=\"col\">
-                    ";
-        // line 15
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 15, $this->source); })()), "description", [], "any", false, false, false, 15), 'row');
+        ";
+        // line 13
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 13, $this->source); })()), "categories", [], "any", false, false, false, 13), 'widget');
         echo "
-                </div>
-                <div class=\"col\">
-                    ";
-        // line 18
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 18, $this->source); })()), "publishedAt", [], "any", false, false, false, 18), 'row');
+        ";
+        // line 14
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 14, $this->source); })()), "submit", [], "any", false, false, false, 14), 'row', ["label" => "Valider"]);
         echo "
-                </div>
-                <div class=\"col\">
-                    ";
-        // line 21
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 21, $this->source); })()), "playlistId", [], "any", false, false, false, 21), 'row');
-        echo "
-                </div>
-                <div class=\"col\">
-                    ";
-        // line 24
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 24, $this->source); })()), "videoId", [], "any", false, false, false, 24), 'row');
-        echo "
-                </div>
-                <div class=\"col\">
-                    ";
-        // line 27
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 27, $this->source); })()), "categoriesid", [], "any", false, false, false, 27), 'widget');
-        echo "
-                </div>  
-                <div class=\"col\">
-                </div>
-            </div>
-        </div>
     </div>
     ";
-        // line 34
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 34, $this->source); })()), 'form_end');
+        // line 16
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formformation"]) || array_key_exists("formformation", $context) ? $context["formformation"] : (function () { throw new RuntimeError('Variable "formformation" does not exist.', 16, $this->source); })()), 'form_end');
         echo "
 ";
         
@@ -147,7 +132,7 @@ class __TwigTemplate_eb1d06e4751180237ad35458e094a7c8 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  118 => 34,  108 => 27,  102 => 24,  96 => 21,  90 => 18,  84 => 15,  78 => 12,  68 => 6,  58 => 5,  35 => 3,);
+        return array (  103 => 16,  98 => 14,  94 => 13,  90 => 12,  86 => 11,  82 => 10,  78 => 9,  74 => 8,  68 => 6,  58 => 5,  35 => 3,);
     }
 
     public function getSourceContext()
@@ -158,32 +143,14 @@ class __TwigTemplate_eb1d06e4751180237ad35458e094a7c8 extends Template
 
 {% block body %}
     {{ form_start(formformation) }}
-
-    <div class=\"row\">
-        <div class=\"col\">
-            <div class=\"row\">
-                <div class=\"col-auto\">
-                    {{ form_row(formformation.title) }}
-                </div>
-                <div class=\"col\">
-                    {{ form_row(formformation.description) }}
-                </div>
-                <div class=\"col\">
-                    {{ form_row(formformation.publishedAt) }}
-                </div>
-                <div class=\"col\">
-                    {{ form_row(formformation.playlistId) }}
-                </div>
-                <div class=\"col\">
-                    {{ form_row(formformation.videoId) }}
-                </div>
-                <div class=\"col\">
-                    {{ form_widget(formformation.categoriesid) }}
-                </div>  
-                <div class=\"col\">
-                </div>
-            </div>
-        </div>
+    <div class=\"form-container\">
+        {{ form_row(formformation.title) }}
+        {{ form_row(formformation.description) }}
+        {{ form_row(formformation.publishedAt) }}
+        {{ form_row(formformation.playlist) }}
+        {{ form_row(formformation.videoId) }}
+        {{ form_widget(formformation.categories) }}
+        {{form_row(formformation.submit, {'label': 'Valider'})}}
     </div>
     {{ form_end(formformation) }}
 {% endblock %}", "admin/admin.formations.form.html.twig", "/Applications/XAMPP/xamppfiles/htdocs/CNED1/templates/admin/admin.formations.form.html.twig");

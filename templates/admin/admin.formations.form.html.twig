@@ -4,32 +4,14 @@
 
 {% block body %}
     {{ form_start(formformation) }}
-
-    <div class="row">
-        <div class="col">
-            <div class="row">
-                <div class="col-auto">
-                    {{ form_row(formformation.title) }}
-                </div>
-                <div class="col">
-                    {{ form_row(formformation.description) }}
-                </div>
-                <div class="col">
-                    {{ form_row(formformation.publishedAt) }}
-                </div>
-                <div class="col">
-                    {{ form_row(formformation.playlistId) }}
-                </div>
-                <div class="col">
-                    {{ form_row(formformation.videoId) }}
-                </div>
-                <div class="col">
-                    {{ form_widget(formformation.categoriesid) }}
-                </div>  
-                <div class="col">
-                </div>
-            </div>
-        </div>
+    <div class="form-container">
+        {{ form_row(formformation.title) }}
+        {{ form_row(formformation.description) }}
+        {{ form_row(formformation.publishedAt) }}
+        {{ form_row(formformation.playlist) }}
+        {{ form_row(formformation.videoId) }}
+        {{ form_widget(formformation.categories) }}
+        {{form_row(formformation.submit, {'label': 'Valider'})}}
     </div>
     {{ form_end(formformation) }}
 {% endblock %}

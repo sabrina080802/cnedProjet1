@@ -1,17 +1,24 @@
 {% extends "baseadmin.html.twig" %}
 
 {% block body %}
-    <div class="top-menu">
-        <form method="POST" action="{{ path('admin.add.category') }}">
-            <input type="text" class="sm" name="name" placeholder="Nom de la catégorie">
-            <input type="hidden" name="_token" value="{{ csrf_token('filtre_name') }}">
-                <button type ="submit">Ajouter une catégorie</button>
-        </form>
-
+    <div class="data-menu">
         <div class="sort-by">
-            <a href="{{ path('admin.categories.sort', {champ:'name', ordre:'ASC'}) }}" class="btn btn-info btn-sm active" role="button" aria-pressed="true"><</a>
-            <span>Trier par nom</span>
-            <a href="{{ path('admin.categories.sort', {champ:'name', ordre:'DESC'})}}" class="btn btn-info btn-sm active" role="button" aria-pressed="true">></a>
+            <form class="field" method="POST" action="{{ path('admin.add.category') }}">
+                <input type="text" class="sm" name="name" placeholder="Nom de la catégorie">
+                <input type="hidden" name="_token" value="{{ csrf_token('filtre_name') }}">
+                <button type ="submit" >Ajouter une catégorie</button>
+            </form>
+            {% for flashError in app.session.flashbag.get('error') %}
+                <div class="alert alert-danger">
+                    {{ flashError }}
+                </div>
+            {% endfor %}
+
+            <div class="field ordered">
+                <div>Trier par nom</div>
+                <a href="{{ path('admin.categories.sort', {champ:'name', ordre:'ASC'}) }}" class="btn btn-info btn-sm active btn-up" role="button" aria-pressed="true"><</a>
+                <a href="{{ path('admin.categories.sort', {champ:'name', ordre:'DESC'})}}" class="btn btn-info btn-sm active btn-down" role="button" aria-pressed="true">></a>
+            </div>
         </div>
     </div>
     <div class="category-list">
@@ -28,6 +35,8 @@
                 <div class="btn-delete">
                     {% if categorie.formations|length == 0 %}
                         <a href="{{ path('admin.delete.category', {id:categorie.id}) }}" class="btn btn-danger" onclick="return confirm('Etes-vous sûr de vouloir supprimer {{ categorie.name }} ?')">Supprimer</a>
+                    {% else %}
+                        <button class="btn btn-danger" onclick="alert('Vous ne pouvez pas supprimer votre catégories car elle est liée à une ou plusieurs formations.')">Supprimer</button>
                     {% endif %}
                 </div>
             </div>
