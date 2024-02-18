@@ -96,7 +96,7 @@ class __TwigTemplate_095d2111bd023aedeb6af65079efc6ef extends Template
         echo "\">
                             <button type=\"submit\" class=\"btn btn-info mb-2 btn-sm\">filtrer</button>
                         </div>
-                    </form>                    
+                    </form>
                 </th>
                 <th class=\"text-left align-top\" scope=\"col\">
                     playlist<br />
@@ -193,58 +193,58 @@ class __TwigTemplate_095d2111bd023aedeb6af65079efc6ef extends Template
             // line 60
             echo "                <tr class=\"align-middle\">
                     <td>
-                        <h5 class=\"text-info\">
-                            ";
-            // line 63
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "title", [], "any", false, false, false, 63), "html", null, true);
-            echo "
-                        </h5>
+                        <h5 class=\"text-info\">";
+            // line 62
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "title", [], "any", false, false, false, 62), "html", null, true);
+            echo "</h5>
                     </td>
                     <td class=\"text-left\">
                         ";
-            // line 67
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["formation"], "playlist", [], "any", false, false, false, 67), "name", [], "any", false, false, false, 67), "html", null, true);
-            echo "                  
+            // line 65
+            if ((twig_get_attribute($this->env, $this->source, $context["formation"], "playlist", [], "any", false, false, false, 65) != null)) {
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["formation"], "playlist", [], "any", false, false, false, 65), "name", [], "any", false, false, false, 65), "html", null, true);
+            }
+            echo " 
                     </td>                    
                     <td class=\"text-left\">
                         ";
-            // line 70
+            // line 68
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["formation"], "categories", [], "any", false, false, false, 70));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["formation"], "categories", [], "any", false, false, false, 68));
             foreach ($context['_seq'] as $context["_key"] => $context["categorie"]) {
-                // line 71
+                // line 69
                 echo "                            ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "name", [], "any", false, false, false, 71), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "name", [], "any", false, false, false, 69), "html", null, true);
                 echo "<br />
                         ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 73
+            // line 71
             echo "                    </td>                    
                     <td class=\"text-center\">
                         ";
-            // line 75
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "publishedatstring", [], "any", false, false, false, 75), "html", null, true);
+            // line 73
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "publishedatstring", [], "any", false, false, false, 73), "html", null, true);
             echo "
                     </td>
                     <td class=\"text-center\">
                         ";
-            // line 78
-            if (twig_get_attribute($this->env, $this->source, $context["formation"], "miniature", [], "any", false, false, false, 78)) {
-                // line 79
+            // line 76
+            if (twig_get_attribute($this->env, $this->source, $context["formation"], "miniature", [], "any", false, false, false, 76)) {
+                // line 77
                 echo "                            <a href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("formations.showone", ["id" => twig_get_attribute($this->env, $this->source, $context["formation"], "id", [], "any", false, false, false, 79)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("formations.showone", ["id" => twig_get_attribute($this->env, $this->source, $context["formation"], "id", [], "any", false, false, false, 77)]), "html", null, true);
                 echo "\">
                                 <img src=\"";
-                // line 80
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "miniature", [], "any", false, false, false, 80), "html", null, true);
+                // line 78
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "miniature", [], "any", false, false, false, 78), "html", null, true);
                 echo "\">
                             </a>
                         ";
             }
-            // line 83
+            // line 81
             echo "                    </td>
                 </tr>
             ";
@@ -252,7 +252,7 @@ class __TwigTemplate_095d2111bd023aedeb6af65079efc6ef extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['formation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 86
+        // line 84
         echo "        </tbody>
     </table>
 ";
@@ -285,7 +285,7 @@ class __TwigTemplate_095d2111bd023aedeb6af65079efc6ef extends Template
      */
     public function getDebugInfo()
     {
-        return array (  256 => 86,  248 => 83,  242 => 80,  237 => 79,  235 => 78,  229 => 75,  225 => 73,  216 => 71,  212 => 70,  206 => 67,  199 => 63,  194 => 60,  190 => 59,  179 => 51,  175 => 50,  168 => 45,  157 => 42,  154 => 41,  148 => 39,  145 => 38,  141 => 37,  135 => 34,  125 => 27,  119 => 26,  113 => 23,  109 => 22,  105 => 21,  95 => 14,  89 => 13,  83 => 10,  79 => 9,  75 => 8,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  256 => 84,  248 => 81,  242 => 78,  237 => 77,  235 => 76,  229 => 73,  225 => 71,  216 => 69,  212 => 68,  204 => 65,  198 => 62,  194 => 60,  190 => 59,  179 => 51,  175 => 50,  168 => 45,  157 => 42,  154 => 41,  148 => 39,  145 => 38,  141 => 37,  135 => 34,  125 => 27,  119 => 26,  113 => 23,  109 => 22,  105 => 21,  95 => 14,  89 => 13,  83 => 10,  79 => 9,  75 => 8,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -306,7 +306,7 @@ class __TwigTemplate_095d2111bd023aedeb6af65079efc6ef extends Template
                             <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('filtre_title') }}\">
                             <button type=\"submit\" class=\"btn btn-info mb-2 btn-sm\">filtrer</button>
                         </div>
-                    </form>                    
+                    </form>
                 </th>
                 <th class=\"text-left align-top\" scope=\"col\">
                     playlist<br />
@@ -351,12 +351,10 @@ class __TwigTemplate_095d2111bd023aedeb6af65079efc6ef extends Template
             {% for formation in formations %}
                 <tr class=\"align-middle\">
                     <td>
-                        <h5 class=\"text-info\">
-                            {{ formation.title }}
-                        </h5>
+                        <h5 class=\"text-info\">{{ formation.title }}</h5>
                     </td>
                     <td class=\"text-left\">
-                        {{ formation.playlist.name }}                  
+                        {% if formation.playlist != null %}{{ formation.playlist.name }}{% endif %} 
                     </td>                    
                     <td class=\"text-left\">
                         {% for categorie in formation.categories %}

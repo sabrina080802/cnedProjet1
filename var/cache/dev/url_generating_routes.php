@@ -23,7 +23,7 @@ return [
     'admin.playlists.remove' => [[], ['_controller' => 'App\\Controller\\AdminPlaylistsController::remove'], [], [['text', '/admin/playlists/remove']], [], [], []],
     'admin.authenticate' => [[], ['_controller' => 'App\\Controller\\AuthenticateController::index'], [], [['text', '/admin']], [], [], []],
     'formations' => [[], ['_controller' => 'App\\Controller\\FormationsController::index'], [], [['text', '/formations']], [], [], []],
-    'formations.sort' => [['champ', 'ordre', 'table'], ['table' => '', '_controller' => 'App\\Controller\\FormationsController::sort'], [], [['variable', '/', '[^/]++', 'table', true], ['variable', '/', '[^/]++', 'ordre', true], ['variable', '/', '[^/]++', 'champ', true], ['text', '/formations/tri']], [], [], []],
+    'formations.sort' => [['champ', 'ordre'], ['_controller' => 'App\\Controller\\FormationsController::sort'], [], [['variable', '/', '[^/]++', 'ordre', true], ['variable', '/', '[^/]++', 'champ', true], ['text', '/formations/tri']], [], [], []],
     'formations.findallcontain' => [['champ', 'table'], ['table' => '', '_controller' => 'App\\Controller\\FormationsController::findAllContain'], [], [['variable', '/', '[^/]++', 'table', true], ['variable', '/', '[^/]++', 'champ', true], ['text', '/formations/recherche']], [], [], []],
     'formations.showone' => [['id'], ['_controller' => 'App\\Controller\\FormationsController::showOne'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/formations/formation']], [], [], []],
     'oauth_login' => [[], ['_controller' => 'App\\Controller\\OAuthController::index'], [], [['text', '/oauth/login']], [], [], []],

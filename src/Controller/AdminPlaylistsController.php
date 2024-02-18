@@ -11,8 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Playlist;
 use App\Form\PlaylistType;
-use App\Controller\AdminPlaylistsController;
 
+/**
+ * Controleur des admins playlists
+ *
+ */
 class AdminPlaylistsController extends AbstractController
 {
 
@@ -64,7 +67,7 @@ class AdminPlaylistsController extends AbstractController
     {
         $playlist = $this->playlistRepository->findAllOrderBy($champ, $ordre);
         return $this->render('admin/admin.playlists.html.twig', [
-            
+
             'playlists' => $playlist,
             'categories' => $this->categorieRepository->findAll()
 
@@ -112,14 +115,15 @@ class AdminPlaylistsController extends AbstractController
         ]);
     }
 
-     /**
+    /**
      * @Route("/admin/playlists/recherche/{champ}/{table}", name="admin.playlists.findallcontain")
      * @param type $champ
      * @param Request $request
      * @param type $table
      * @return Response
      */
-    public function findAllContain($champ, Request $request, $table=""): Response{
+    public function findAllContain($champ, Request $request, $table = ""): Response
+    {
         $valeur = $request->get("recherche");
         $playlists = $this->playlistRepository->findByContainValue($champ, $valeur, $table);
         $categories = $this->categorieRepository->findAll();
@@ -129,13 +133,14 @@ class AdminPlaylistsController extends AbstractController
             'valeur' => $valeur,
             'table' => $table
         ]);
-    } 
+    }
 
-    #[Route('/admin/playlists/remove', name:'admin.playlists.remove')]
-    public function remove(Request $request):Response{
+    #[Route('/admin/playlists/remove', name: 'admin.playlists.remove')]
+    public function remove(Request $request): Response
+    {
         $deleted = $this->playlistRepository->findById($request->get('id'));
-        if($deleted != null){
-            $this->playlistRepository->remove($deleted, true);
+        if ($deleted != null) {
+            $this->playlistRepository->remove($deleted);
         }
 
         $playlists = $this->playlistRepository->findAll();

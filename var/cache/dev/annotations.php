@@ -152,10 +152,6 @@ return [[
 '[C]App%5CController%5CFormationsController%23findAllContain' => 1,
 'App%5CController%5CFormationsController%23showOne' => 9,
 '[C]App%5CController%5CFormationsController%23showOne' => 1,
-'App%5CController%5CFormationsController%23delete' => 0,
-'[C]App%5CController%5CFormationsController%23delete' => 1,
-'App%5CController%5CFormationsController%23createFormation' => 0,
-'[C]App%5CController%5CFormationsController%23createFormation' => 1,
 'App%5CController%5CFormationsController%24formationRepository' => 0,
 '[C]App%5CController%5CFormationsController%24formationRepository' => 1,
 'App%5CController%5CFormationsController%24categorieRepository' => 0,
@@ -872,7 +868,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1708131428,
+1 => 1708227874,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -992,7 +988,7 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/formations/tri/{champ}/{ordre}/{table}',
+                    '/formations/tri/{champ}/{ordre}',
                 ],
                 'name' => [
                     'formations.sort',
@@ -1260,7 +1256,8 @@ return [[
 19 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
-            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+            clone ($p['Symfony\\Component\\Validator\\Constraints\\LessThanOrEqual'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\LessThanOrEqual')),
         ],
         null,
         [
@@ -1277,10 +1274,22 @@ return [[
                 'nullable' => [
                     true,
                 ],
+                'groups' => [
+                    1 => [
+                        'Default',
+                    ],
+                ],
+                'message' => [
+                    1 => 'La date ne doit pas être postérieure à aujourd\'hui',
+                ],
+                'value' => [
+                    1 => 'today',
+                ],
             ],
         ],
         [
             $o[0],
+            $o[1],
         ],
         []
     );

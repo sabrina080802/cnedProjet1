@@ -12,6 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Categorie;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 
+/**
+ * Controleur des admins catégories
+ */
 class AdminCategoryController extends AbstractController
 {
     /**
@@ -41,7 +44,7 @@ class AdminCategoryController extends AbstractController
         $this->categorieRepository = $categorieRepository;
         $this->formationRepository = $formationRespository;
     }
-    
+
     #[Route('/admin/category', name: 'admin.category')]
     public function index(): Response
     {
@@ -62,18 +65,18 @@ class AdminCategoryController extends AbstractController
             $categories = new Categorie();
             $categories->setName($name);
             $this->categorieRepository->add($categories, true);
-        }
-        else{
+        } else {
             $flashBag->add('error', 'Le nom de la catégorie est déjà pris.');
         }
         return $this->redirectToRoute('admin.category');
     }
 
     #[Route("/admin/categories/deleteCategory", name: "admin.delete.category")]
-    public function deleteCategory(Request $request) :Response{
+    public function deleteCategory(Request $request): Response
+    {
         $id = $request->get('id');
         $category = $this->categorieRepository->findOneById($id);
-        if($category != null){
+        if ($category != null) {
             $this->categorieRepository->remove($category, true);
         }
         return $this->redirectToRoute('admin.category');

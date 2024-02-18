@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Controleur des authentifications
+ */
 class AuthenticateController extends AbstractController
 {
     #[Route('/admin', name: 'admin.authenticate')]

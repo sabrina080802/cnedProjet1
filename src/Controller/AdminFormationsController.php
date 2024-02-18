@@ -12,6 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Form\FormationType;
 use App\Entity\Formation;
 
+/**
+ * Controleur des admins formations
+ */
 class AdminFormationsController extends AbstractController
 {
     /**
@@ -42,7 +45,8 @@ class AdminFormationsController extends AbstractController
         $this->formationRepository = $formationRespository;
     }
 
-    private function getFormations($formations):array{
+    private function getFormations($formations): array
+    {
         $formationsCount = sizeof($formations);
         for ($i = 0; $i < $formationsCount; $i++) {
             $formations[$i]->setDescription(preg_replace('/(https?:\/\/([\w\d\-\_]+\.\w+).*)/', '<a href="$1" target="_blank">$2</a>', $formations[$i]->getDescription()));
@@ -71,13 +75,12 @@ class AdminFormationsController extends AbstractController
     #[Route('/admin/formations/form', name: 'admin.formations.form')]
     public function create(Request $request): Response
     {
-        if($request->get('id')){
+        if ($request->get('id')) {
             $formation = $this->formationRepository->findById($request->get('id'));
-            if($formation == null){
+            if ($formation == null) {
                 $formation = new Formation();
             }
-        }
-        else{
+        } else {
             $formation = new Formation();
         }
         $form = $this->createForm(FormationType::class, $formation);
@@ -98,25 +101,29 @@ class AdminFormationsController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/formations/title', name:'admin.formations.title')]
-    public function searchByTitle(Request $request):Response{
+    #[Route('/admin/formations/title', name: 'admin.formations.title')]
+    public function searchByTitle(Request $request): Response
+    {
         $formations = $this->getFormations($this->formationRepository->findAllByTitle($request->get('title')));
         return $this->render('admin/admin.formations.html.twig', [
             'formations' => $formations
         ]);
     }
 
-    #[Route('/admin/formations/playlist', name:'admin.formations.playlist')]
-    public function searchByPlaylist(Request $request):Response{
+    #[Route('/admin/formations/playlist', name: 'admin.formations.playlist')]
+    public function searchByPlaylist(Request $request): Response
+    {
         $formations = $this->getFormations($this->formationRepository->findAllByPlaylistName($request->get('playlist')));
         return $this->render('admin/admin.formations.html.twig', [
             'formations' => $formations
         ]);
     }
-    #[Route('/admin/formations/remove', name:'admin.formations.remove')]
-    public function remove(Request $request):Response{
+    #[Route('/admin/formations/remove', name: 'admin.formations.remove')]
+    public function remove(Request $request): Response
+    {
         $deleted = $this->formationRepository->findById($request->get('id'));
-        if($deleted != null){
+        if ($deleted != null) {
+            $this->formationRepository->remove($deleted);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($deleted);
             $entityManager->flush();

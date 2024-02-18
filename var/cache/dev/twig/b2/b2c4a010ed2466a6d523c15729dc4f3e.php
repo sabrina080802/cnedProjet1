@@ -116,28 +116,26 @@ class __TwigTemplate_61564a7dcb6b820e15338960d0b96beb extends Template
         <div class=\"text-end top-title\">
             <h2>Administration</h2>
         </div>
-            <div class=\"text-end top-nav\" route=\"";
+        <div class=\"text-end top-nav\" route=\"";
         // line 14
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 14, $this->source); })()), "request", [], "any", false, false, false, 14), "attributes", [], "any", false, false, false, 14), "get", ["_route"], "method", false, false, false, 14), "html", null, true);
         echo "\">
-                <a href=\"";
+            <a href=\"";
         // line 15
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.formations");
         echo "\">Gestion des formations</a>
-                <a href=\"";
+            <a href=\"";
         // line 16
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.playlists");
         echo "\">Gestion des playlists</a>
-                <a href=\"";
+            <a href=\"";
         // line 17
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.category");
         echo "\">Gestion des catégories</a>
-                <div class=\"text-end\">
-                <a href=\"";
-        // line 19
+            <a class=\"btn-disconnect\" href=\"";
+        // line 18
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
         echo "\">Se déconnecter</a>
-            </div>        
         </div>
 
         <!-- menu -->
@@ -184,7 +182,7 @@ class __TwigTemplate_61564a7dcb6b820e15338960d0b96beb extends Template
      */
     public function getDebugInfo()
     {
-        return array (  138 => 19,  133 => 17,  129 => 16,  125 => 15,  121 => 14,  111 => 9,  106 => 6,  96 => 5,  78 => 4,  60 => 3,  37 => 1,);
+        return array (  137 => 18,  133 => 17,  129 => 16,  125 => 15,  121 => 14,  111 => 9,  106 => 6,  96 => 5,  78 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -202,13 +200,11 @@ class __TwigTemplate_61564a7dcb6b820e15338960d0b96beb extends Template
         <div class=\"text-end top-title\">
             <h2>Administration</h2>
         </div>
-            <div class=\"text-end top-nav\" route=\"{{app.request.attributes.get('_route')}}\">
-                <a href=\"{{ path('admin.formations') }}\">Gestion des formations</a>
-                <a href=\"{{ path('admin.playlists') }}\">Gestion des playlists</a>
-                <a href=\"{{ path('admin.category') }}\">Gestion des catégories</a>
-                <div class=\"text-end\">
-                <a href=\"{{ path('logout') }}\">Se déconnecter</a>
-            </div>        
+        <div class=\"text-end top-nav\" route=\"{{app.request.attributes.get('_route')}}\">
+            <a href=\"{{ path('admin.formations') }}\">Gestion des formations</a>
+            <a href=\"{{ path('admin.playlists') }}\">Gestion des playlists</a>
+            <a href=\"{{ path('admin.category') }}\">Gestion des catégories</a>
+            <a class=\"btn-disconnect\" href=\"{{ path('logout') }}\">Se déconnecter</a>
         </div>
 
         <!-- menu -->

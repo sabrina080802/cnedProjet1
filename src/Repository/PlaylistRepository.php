@@ -30,8 +30,15 @@ class PlaylistRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
-    public function findById($id):Playlist|null{
+    public function remove(Playlist $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+    public function findById($id): Playlist|null
+    {
         return $this->createQueryBuilder('p')
             ->where('p.id=:id')
             ->setParameter('id', $id)
@@ -56,7 +63,7 @@ class PlaylistRepository extends ServiceEntityRepository
     }
 
     /**
-     * Retourne toutes les playlists triées sur le nom de la playlist
+     * Retourne toutes les playlists triés par nombre de formation
      * @param type $champ
      * @param type $ordre
      * @return Playlist[]
@@ -103,32 +110,11 @@ class PlaylistRepository extends ServiceEntityRepository
                 ->orderBy('p.name', 'ASC')
                 ->getQuery()
                 ->getResult();
-
-        }
-    }
-     /**
-     * Retourne toutes les formations triées sur un champ
-     * @param type $champ
-     * @param type $ordre
-     * @param type $table si $champ dans une autre table
-     * @return Playlist[]
-     */
-    public function findAllOrderBy($champ, $ordre, $table=""): array{
-        if($table==""){
-            return $this->createQueryBuilder('f')
-                    ->orderBy('f.'.$champ, $ordre)
-                    ->getQuery()
-                    ->getResult();
-        }else{
-            return $this->createQueryBuilder('f')
-                    ->join('f.'.$table, 't')
-                    ->orderBy('t.'.$champ, $ordre)
-                    ->getQuery()
-                    ->getResult();            
         }
     }
 
-    public function findAllByTitle($name):array{
+    public function findAllByTitle($name): array
+    {
         return $this->createQueryBuilder('p')
             ->where('p.name LIKE :name')
             ->setParameter('name', '%' . $name . '%')

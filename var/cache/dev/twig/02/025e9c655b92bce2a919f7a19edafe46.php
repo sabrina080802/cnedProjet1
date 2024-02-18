@@ -123,11 +123,15 @@ class __TwigTemplate_a1dfecd443fcab2c1519153310b10ef2 extends Template
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["formation"], "title", [], "any", false, false, false, 33), "html", null, true);
             echo "
                                 </h5>
-                                <strong>playlist : </strong>";
+                                ";
             // line 35
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["formation"], "playlist", [], "any", false, false, false, 35), "name", [], "any", false, false, false, 35), "html", null, true);
-            echo "<br />
-                                <strong>catégories : </strong> 
+            if ((twig_get_attribute($this->env, $this->source, $context["formation"], "playlist", [], "any", false, false, false, 35) != null)) {
+                echo "<strong>playlist : </strong>";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["formation"], "playlist", [], "any", false, false, false, 35), "name", [], "any", false, false, false, 35), "html", null, true);
+                echo "<br />";
+            }
+            // line 36
+            echo "                                <strong>catégories : </strong> 
                                 ";
             // line 37
             $context['_parent'] = $context;
@@ -186,7 +190,7 @@ class __TwigTemplate_a1dfecd443fcab2c1519153310b10ef2 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  154 => 42,  146 => 40,  137 => 38,  133 => 37,  128 => 35,  123 => 33,  118 => 31,  114 => 29,  107 => 25,  102 => 24,  100 => 23,  94 => 19,  90 => 18,  81 => 12,  75 => 9,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  158 => 42,  150 => 40,  141 => 38,  137 => 37,  134 => 36,  128 => 35,  123 => 33,  118 => 31,  114 => 29,  107 => 25,  102 => 24,  100 => 23,  94 => 19,  90 => 18,  81 => 12,  75 => 9,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -225,7 +229,7 @@ class __TwigTemplate_a1dfecd443fcab2c1519153310b10ef2 extends Template
                                 <h5 class=\"text-info mt-1\">
                                     {{ formation.title }}
                                 </h5>
-                                <strong>playlist : </strong>{{ formation.playlist.name }}<br />
+                                {% if formation.playlist != null %}<strong>playlist : </strong>{{ formation.playlist.name }}<br />{% endif %}
                                 <strong>catégories : </strong> 
                                 {% for categorie in formation.categories %}
                                     {{ categorie.name }}&nbsp;

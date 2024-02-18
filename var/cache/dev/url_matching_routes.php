@@ -45,28 +45,28 @@ return [
                     .')'
                 .')'
                 .'|/formations/(?'
-                    .'|tri/([^/]++)/([^/]++)(?:/([^/]++))?(*:222)'
-                    .'|recherche/([^/]++)(?:/([^/]++))?(*:262)'
-                    .'|formation/([^/]++)(*:288)'
+                    .'|tri/([^/]++)/([^/]++)(*:208)'
+                    .'|recherche/([^/]++)(?:/([^/]++))?(*:248)'
+                    .'|formation/([^/]++)(*:274)'
                 .')'
                 .'|/playlists/(?'
-                    .'|tri/([^/]++)/([^/]++)(*:332)'
-                    .'|recherche/([^/]++)(?:/([^/]++))?(*:372)'
-                    .'|playlist/([^/]++)(*:397)'
+                    .'|tri/([^/]++)/([^/]++)(*:318)'
+                    .'|recherche/([^/]++)(?:/([^/]++))?(*:358)'
+                    .'|playlist/([^/]++)(*:383)'
                 .')'
                 .'|/_(?'
-                    .'|error/(\\d+)(?:\\.([^/]++))?(*:437)'
-                    .'|wdt/([^/]++)(*:457)'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:423)'
+                    .'|wdt/([^/]++)(*:443)'
                     .'|profiler/([^/]++)(?'
                         .'|/(?'
-                            .'|search/results(*:503)'
-                            .'|router(*:517)'
+                            .'|search/results(*:489)'
+                            .'|router(*:503)'
                             .'|exception(?'
-                                .'|(*:537)'
-                                .'|\\.css(*:550)'
+                                .'|(*:523)'
+                                .'|\\.css(*:536)'
                             .')'
                         .')'
-                        .'|(*:560)'
+                        .'|(*:546)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -76,19 +76,19 @@ return [
         84 => [[['_route' => 'admin.formations.tri', '_controller' => 'App\\Controller\\AdminFormationsController::sort'], ['champ', 'ordre'], null, null, false, true, null]],
         120 => [[['_route' => 'admin.playlists.tri', '_controller' => 'App\\Controller\\AdminPlaylistsController::sort'], ['champ', 'ordre'], null, null, false, true, null]],
         162 => [[['_route' => 'admin.playlists.findallcontain', 'table' => '', '_controller' => 'App\\Controller\\AdminPlaylistsController::findAllContain'], ['champ', 'table'], null, null, false, true, null]],
-        222 => [[['_route' => 'formations.sort', 'table' => '', '_controller' => 'App\\Controller\\FormationsController::sort'], ['champ', 'ordre', 'table'], null, null, false, true, null]],
-        262 => [[['_route' => 'formations.findallcontain', 'table' => '', '_controller' => 'App\\Controller\\FormationsController::findAllContain'], ['champ', 'table'], null, null, false, true, null]],
-        288 => [[['_route' => 'formations.showone', '_controller' => 'App\\Controller\\FormationsController::showOne'], ['id'], null, null, false, true, null]],
-        332 => [[['_route' => 'playlists.sort', '_controller' => 'App\\Controller\\PlaylistsController::sort'], ['champ', 'ordre'], null, null, false, true, null]],
-        372 => [[['_route' => 'playlists.findallcontain', 'table' => '', '_controller' => 'App\\Controller\\PlaylistsController::findAllContain'], ['champ', 'table'], null, null, false, true, null]],
-        397 => [[['_route' => 'playlists.showone', '_controller' => 'App\\Controller\\PlaylistsController::showOne'], ['id'], null, null, false, true, null]],
-        437 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        457 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
-        503 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
-        517 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
-        537 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
-        550 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        560 => [
+        208 => [[['_route' => 'formations.sort', '_controller' => 'App\\Controller\\FormationsController::sort'], ['champ', 'ordre'], null, null, false, true, null]],
+        248 => [[['_route' => 'formations.findallcontain', 'table' => '', '_controller' => 'App\\Controller\\FormationsController::findAllContain'], ['champ', 'table'], null, null, false, true, null]],
+        274 => [[['_route' => 'formations.showone', '_controller' => 'App\\Controller\\FormationsController::showOne'], ['id'], null, null, false, true, null]],
+        318 => [[['_route' => 'playlists.sort', '_controller' => 'App\\Controller\\PlaylistsController::sort'], ['champ', 'ordre'], null, null, false, true, null]],
+        358 => [[['_route' => 'playlists.findallcontain', 'table' => '', '_controller' => 'App\\Controller\\PlaylistsController::findAllContain'], ['champ', 'table'], null, null, false, true, null]],
+        383 => [[['_route' => 'playlists.showone', '_controller' => 'App\\Controller\\PlaylistsController::showOne'], ['id'], null, null, false, true, null]],
+        423 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        443 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        489 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        503 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        523 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        536 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        546 => [
             [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
