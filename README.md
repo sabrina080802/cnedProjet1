@@ -1,23 +1,28 @@
 # Mediatekformation
 
 ## Présentation
-Ce site, développé avec Symfony 5.4, permet d'accéder aux vidéos d'auto-formation proposées par une chaîne de médiathèques et qui sont aussi accessibles sur YouTube.<br> 
+
+Ce site, développé avec Symfony 5.4, permet d'accéder aux vidéos d'auto-formation proposées par une chaîne de médiathèques et qui sont aussi accessibles sur YouTube.<br>
 Actuellement, seule la partie front office a été développée. Elle contient les fonctionnalités globales suivantes :<br>
 ![img1](https://github.com/CNED-SLAM/mediatekformation/assets/100127886/eed72688-c9e5-4509-ab44-7309d3e86041)
 
 ## Les différentes pages
+
 Voici les 5 pages correspondant aux différents cas d’utilisation.
 
 ## La base de données
+
 La base de données exploitée par le site est au format MySQL.
 
 ### Schéma conceptuel de données
+
 Voici le schéma correspondant à la BDD.<br>
 ![img7](https://github.com/CNED-SLAM/mediatekformation/assets/100127886/1f1f4c83-5955-4ae9-b2f2-a030055c1d3f)
 <br>video_id contient le code YouTube de la vidéo, qui permet ensuite de lancer la vidéo à l'adresse suivante :<br>
 https://www.youtube.com/embed/<<<video_id>>>
 
 ### Relations issues du schéma
+
 <code><strong>formation (id, published_at, title, video_id, description, playlist_id)</strong>
 id : clé primaire
 playlist_id : clé étrangère en ref. à id de playlist
@@ -68,9 +73,8 @@ Le développement de MediaTek Formation s'est articulé autour de plusieurs miss
 
 ## Portfolio
 
-Pour plus d'informations sur le projet MediaTek Formation, y compris des captures d'écran et des détails supplémentaires, visitez la page : 
+Pour plus d'informations sur le projet MediaTek Formation, y compris des captures d'écran et des détails supplémentaires, visitez la page :
 
 ---
 
 © 2022 Sabrina AL HAMMUTI. Tous droits réservés.
-
