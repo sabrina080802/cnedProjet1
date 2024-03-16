@@ -80,6 +80,9 @@ class PlaylistsController extends AbstractController
             case "playlist":
                 $playlists = $this->playlistRepository->findAllOrderByFormationsCount($ordre);
                 break;
+            case "formations":
+                $playlists = $this->playlistRepository->findAllOrderByFormationsCount($ordre);
+                break;
         }
         $categories = $this->categorieRepository->findAll();
         return $this->render("pages/playlists.html.twig", [

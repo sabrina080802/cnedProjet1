@@ -113,6 +113,14 @@ class PlaylistRepository extends ServiceEntityRepository
         }
     }
 
+    public function findAllOrderBy($champ, $order): array
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.' . $champ, $order)
+            ->getQuery()
+            ->getResult();
+    }
+
     public function findAllByTitle($name): array
     {
         return $this->createQueryBuilder('p')

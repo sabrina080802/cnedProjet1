@@ -70,7 +70,6 @@ class AdminPlaylistsController extends AbstractController
 
             'playlists' => $playlist,
             'categories' => $this->categorieRepository->findAll()
-
         ]);
     }
 

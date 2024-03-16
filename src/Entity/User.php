@@ -6,6 +6,7 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
@@ -29,11 +30,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @var string The hashed password
-    * @ORM\Column(type="string")
-    */
+     * @ORM\Column(type="string")
+     */
     private ?string $password = null;
 
-      /**
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private ?string $keycloakId = null;
@@ -41,6 +42,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getEmail()
+    {
+        return $this->getUsername();
+    }
+    public function setEmail($email)
+    {
+        $this->setUsername($email);
     }
 
     /**
